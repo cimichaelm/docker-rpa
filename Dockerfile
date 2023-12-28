@@ -14,6 +14,8 @@ RUN apt update -y \
 && apt install --yes --no-install-recommends \
 bzip2 \
 php \
+python3 \
+python3-venv \
 curl \
 wget \
 ca-certificates \
