@@ -12,7 +12,7 @@ defaults()
     prefix=/usr/local
     progdir=$prefix
 
-    prereq_pkg="fonts-liberation"
+    prereq_pkg="fonts-liberation2"
     z="xdg-utils libasound2  libcairo2 libcups2 libdrm2 libgbm1 libnspr4 libnss3 libx11-6 libxcb1"
     pkgs="google-chrome-stable"
 }
