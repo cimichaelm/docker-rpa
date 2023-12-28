@@ -12,7 +12,7 @@ defaults()
     prefix=/usr/local
     progdir=$prefix
 
-    prereq_pkg="libu2f-udev libvulkan1 xdg-utils"
+    prereq_pkg="libu2f-udev libvulkan1 xdg-utils fonts-liberation libasound2 libatk-bridge2 libatk1 libatspi2 libcairo2 libcups2 libdbus libdrm2 libgbm1 libglib2 libgtk-3 libgtk-4 libnspr4 libnss3 libpango-1 libu2f-udev libvulkan1 libx11-6 libxcb1"
 }
 
 get_remote_file()
