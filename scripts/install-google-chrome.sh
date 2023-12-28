@@ -12,7 +12,17 @@ defaults()
     prefix=/usr/local
     progdir=$prefix
 
-    prereq_pkg="libu2f-udev libvulkan1 xdg-utils fonts-liberation libasound2 libatk-bridge2 libatk1 libatspi2 libcairo2 libcups2 libdbus libdrm2 libgbm1 libglib2 libgtk-3 libgtk-4 libnspr4 libnss3 libpango-1 libu2f-udev libvulkan1 libx11-6 libxcb1"
+    prereq_pkg="xdg-utils libasound2  libcairo2 libcups2 libdrm2 libgbm1 libnspr4 libnss3 libx11-6 libxcb1"
+    pkgs="google-chrome-stable"
+}
+
+setup()
+{
+    Lurl=$1
+    if [ ! -d $dldir ]; then
+	mkdir -p $dldir
+    fi
+    cd $dldir
 }
 
 get_remote_file()
@@ -32,16 +42,26 @@ install_pkg()
 }
 
 
-install_app()
+install_app2()
 {
     install_pkg ${prereq_pkg}
 
     get_remote_file $url
     dpkg -i $filename
-    
+}
+
+install_app()
+{
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub > linux_signing_key.pub
+    sudo install -D -o root -g root -m 644 linux_signing_key.pub /etc/apt/keyrings/linux_signing_key.pub
+    sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/linux_signing_key.pub] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+    sudo apt update
+    sudo apt-get install --yes ${pkgs}
 }
 
 defaults
+
+setup
 
 install_app
 
