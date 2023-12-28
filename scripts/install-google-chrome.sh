@@ -12,7 +12,7 @@ defaults()
     prefix=/usr/local
     progdir=$prefix
 
-    prereq_pkg="fonts-liberation2"
+    prereq_pkg=""
     z="xdg-utils libasound2  libcairo2 libcups2 libdrm2 libgbm1 libnspr4 libnss3 libx11-6 libxcb1"
     pkgs="google-chrome-stable"
 }
@@ -53,7 +53,7 @@ install_app2()
 
 install_app()
 {
-    install_pkg ${prereq_pkg}
+#    install_pkg ${prereq_pkg}
     
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub > linux_signing_key.pub
     sudo install -D -o root -g root -m 644 linux_signing_key.pub /etc/apt/keyrings/linux_signing_key.pub
