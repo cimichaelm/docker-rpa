@@ -13,22 +13,22 @@ COPY ./conf/version.txt /opt/rpa/etc/version.txt
 RUN apt update -y \
 && apt install --yes --no-install-recommends \
 bzip2 \
-php8 \
-php8-mysql \
-php8-ldap \
-php8-xmlrpc \
-php8-imap \
+php \
+php-mysql \
+php-ldap \
+php-xmlrpc \
+php-imap \
 curl \
-php8-curl \
-php8-gd \
-php8-mbstring \
-php8-xml \
-php8-apcu-bc \
+php-curl \
+php-gd \
+php-mbstring \
+php-xml \
+php-apcu-bc \
 php-cas \
-php8-intl \
-php8-zip \
-php8-bz2 \
-php8-redis \
+php-intl \
+php-zip \
+php-bz2 \
+php-redis \
 cron \
 wget \
 ca-certificates \
