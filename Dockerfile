@@ -32,4 +32,7 @@ COPY scripts/*.sh /opt/rpa/bin
 RUN chmod 755 /opt/rpa/bin/*.sh
 RUN /opt/rpa/bin/install-google-chrome.sh
 
+RUN mkdir -p /opt/rpa/etc
+COPY conf/*.txt /opt/rpa/etc
+
 # ENTRYPOINT ["/opt/rpa/bin/rpa-start.sh"]
