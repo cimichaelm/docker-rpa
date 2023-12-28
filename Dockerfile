@@ -13,7 +13,7 @@ COPY ./conf/version.txt /opt/rpa/etc/version.txt
 RUN apt update -y \
 && apt install --yes --no-install-recommends \
 bzip2 \
-php \
+php-cli \
 python3 \
 python3-venv \
 curl \
