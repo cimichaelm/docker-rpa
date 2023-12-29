@@ -18,6 +18,7 @@ php-cli \
 python3 \
 python3-venv \
 python3-pip \
+python3-full \
 curl \
 wget \
 ca-certificates \
