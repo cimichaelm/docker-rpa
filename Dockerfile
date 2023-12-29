@@ -7,7 +7,8 @@ ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN mkdir -p /opt/rpa/etc
-COPY ./conf/version.txt /opt/rpa/etc/version.txt
+COPY conf/*.txt /opt/rpa/etc/
+
 
 # install packages
 RUN apt update -y \
@@ -32,10 +33,7 @@ COPY scripts/*.sh /opt/rpa/bin/
 RUN chmod 755 /opt/rpa/bin/*.sh
 RUN /opt/rpa/bin/install-google-chrome.sh
 
-RUN mkdir -p /opt/rpa/etc
-COPY conf/*.txt /opt/rpa/etc/
-
 RUN mkdir -p /opt/rpa/code
-COPY examples/*.py /opt/rpa/code/
+COPY example/*.py /opt/rpa/code/
 
 # ENTRYPOINT ["/opt/rpa/bin/rpa-start.sh"]
