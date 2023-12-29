@@ -6,7 +6,7 @@ defaults()
     tmpdir=/var/tmp
     bindir=/opt/rpa/code
     prog=$bindir/batch-screenshot.py
-    workdir=/storage/work
+    workdir=$tmpdir
 }
 
 run_batch()
@@ -18,10 +18,7 @@ run_batch()
     if [ -d $workdir ]; then
 	cd $workdir
 
-	for prog in ${workdir}/*.py; do
-	    echo "Running: $prog"
-	    python $prog
-	done
+	python $prog
     else
 	echo "No work directory found"
     fi
