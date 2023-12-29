@@ -36,4 +36,5 @@ RUN /opt/rpa/bin/install-google-chrome.sh
 RUN mkdir -p /opt/rpa/code
 COPY example/*.py /opt/rpa/code/
 
-ENTRYPOINT ["/opt/rpa/bin/rpa-start.sh"]
+CMD ["/opt/rpa/bin/rpa-start.sh"]
+
