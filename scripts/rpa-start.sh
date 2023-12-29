@@ -3,12 +3,18 @@
 
 defaults()
 {
-	tmpdir=/var/tmp
+    tmpdir=/var/tmp
+    bindir=/opt/rpa/code
+    prog=$bindir/batch-screenshot.py
+    workdir=$tmpdir
 }
 
 run_batch()
 {
-	echo "${Lopts}"
+    echo "${Lopts}"
+    cd $workdir
+
+    python $prog
 }
 
 defaults
