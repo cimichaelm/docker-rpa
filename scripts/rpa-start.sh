@@ -6,15 +6,28 @@ defaults()
     tmpdir=/var/tmp
     bindir=/opt/rpa/code
     prog=$bindir/batch-screenshot.py
-    workdir=$tmpdir
+    workdir=/storage/work
 }
 
 run_batch()
 {
     echo "${Lopts}"
-    cd $workdir
+    echo "Starting job processor"
+    date
+    
+    if [ -d $workdir ]; then
+	cd $workdir
 
-    python $prog
+	for prog in ${workdir}/*.py; do
+	    echo "Running: $prog"
+	    python $prog
+	done
+    else
+	echo "No work directory found"
+    fi
+    
+    date
+    echo "End of jobs"
 }
 
 defaults
