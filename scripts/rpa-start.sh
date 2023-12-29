@@ -5,8 +5,10 @@ defaults()
 {
     tmpdir=/var/tmp
     bindir=/opt/rpa/code
+    logdir="."
     prog=$bindir/batch-screenshot.py
     workdir=/storage/work
+    logfile=${logdir}/batch.log
 }
 
 run_batch()
@@ -33,6 +35,6 @@ run_batch()
 defaults
 
 opts=$*
-run_batch $opts
+run_batch $opts | tee $logfile
 
 exit 0
