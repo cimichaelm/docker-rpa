@@ -1,5 +1,5 @@
 #!/bin/sh
-#
+# file: init-venv.sh
 # initialize python virtual environments
 #
 defaults()
@@ -46,10 +46,11 @@ setup_python()
 
 defaults
 
+#
 # python 3
+#
 
 setup_py3_venv
 use_py3_venv
-upgrade_pip
+# upgrade_pip
 setup_python $requirements
-
