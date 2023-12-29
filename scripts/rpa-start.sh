@@ -9,6 +9,7 @@ defaults()
     prog=$bindir/batch-screenshot.py
     workdir=/storage/work
     logfile=${logdir}/batch.log
+    interpreter="python3"
 }
 
 run_batch()
@@ -22,7 +23,9 @@ run_batch()
 
 	for prog in ${workdir}/*.py; do
 	    echo "Running: $prog"
-	    python $prog
+	    if [ -f $prog ]; then
+		$interpreter $prog
+	    fi
 	done
     else
 	echo "No work directory found"

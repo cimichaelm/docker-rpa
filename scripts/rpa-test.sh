@@ -7,6 +7,7 @@ defaults()
     bindir=/opt/rpa/code
     prog=$bindir/batch-screenshot.py
     workdir=$tmpdir
+    interpreter="python3"
 }
 
 run_batch()
@@ -18,7 +19,9 @@ run_batch()
     if [ -d $workdir ]; then
 	cd $workdir
 
-	python $prog
+	if [ -f $prog ]; then
+	    $interpreter $prog
+	fi
     else
 	echo "No work directory found"
     fi
