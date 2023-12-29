@@ -31,10 +31,12 @@ chromium \
 RUN mkdir -p /opt/rpa/bin
 COPY scripts/*.sh /opt/rpa/bin/
 RUN chmod 755 /opt/rpa/bin/*.sh
-RUN /opt/rpa/bin/install-google-chrome.sh
 
 RUN mkdir -p /opt/rpa/code
 COPY example/*.py /opt/rpa/code/
+
+RUN /opt/rpa/bin/install-google-chrome.sh
+RUN /opt/rpa/bin/init-build-user.sh rpauser
 
 CMD ["/opt/rpa/bin/rpa-start.sh"]
 
