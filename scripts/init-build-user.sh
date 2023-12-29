@@ -8,7 +8,7 @@ defaults()
 
     u=rpauser
     systemdir=/opt/rpa
-    sudoopts=""
+    sudoopts="--preserve-env"
     homedir=/home
 }
 
