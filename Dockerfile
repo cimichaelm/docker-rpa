@@ -45,5 +45,5 @@ USER rpauser
 ENV HOME /home/rpauser
 ENV USER rpauser
 
-CMD ["/opt/rpa/bin/rpa-start.sh"]
+CMD ["/opt/rpa/bin/init-start.sh"]
 
