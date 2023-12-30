@@ -6,7 +6,7 @@ defaults()
     tmpdir=/var/tmp
     bindir=/opt/rpa/code
     prog=$bindir/batch-screenshot.py
-    workdir=/storage/work
+    workdir=${RPA_WORKDIR:-"/storage/work"}
     interpreter="python3"
     venv="py3env"
     export OPENSSL_CONF=/dev/null
@@ -14,10 +14,17 @@ defaults()
 
 configure()
 {
-    logdir="${workdir}"
+    logdir="${workdir}/log"
     logfile=${logdir}/batch.log
     outputdir="$workdir/output"
 }
+
+setup()
+{
+    create_directory $outputdir
+    create_directory $logdir
+}
+
 
 use_venv()
 {
@@ -27,6 +34,13 @@ use_venv()
     fi
 }
 
+create_directory()
+{
+    Ldir=$1
+    if [ ! -d $Ldir ]; then
+	mkdir -p $Ldir
+    fi
+}
 
 run_batch()
 {
@@ -35,10 +49,6 @@ run_batch()
     date
 
     use_venv $venv
-
-    if [ ! -d $outputdir ]; then
-	mkdir -p $outputdir
-    fi
     
     if [ -d $outputdir ]; then
 	cd $outputdir
@@ -63,6 +73,7 @@ opts=$*
 workdir=$1
 
 configure
+setup
 
 run_batch $opts | tee $logfile
 
