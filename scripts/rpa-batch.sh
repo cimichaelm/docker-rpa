@@ -16,6 +16,7 @@ configure()
 {
     logdir="${workdir}"
     logfile=${logdir}/batch.log
+    outputdir="$workdir/output"
 }
 
 use_venv()
@@ -34,9 +35,13 @@ run_batch()
     date
 
     use_venv $venv
+
+    if [ ! -d $outputdir ]; then
+	mkdir -p $outputdir
+    fi
     
-    if [ -d $workdir ]; then
-	cd $workdir
+    if [ -d $outputdir ]; then
+	cd $outputdir
 	proglist=`echo ${workdir}/*.py`
 	for prog in $proglist; do
 	    echo "Running: $prog"
