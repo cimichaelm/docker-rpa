@@ -11,6 +11,7 @@ defaults()
     logfile=${logdir}/batch.log
     interpreter="python3"
     venv="py3env"
+    export OPENSSL_CONF=/dev/null
 }
 
 use_venv()
