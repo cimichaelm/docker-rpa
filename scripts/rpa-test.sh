@@ -9,6 +9,7 @@ defaults()
     workdir=$tmpdir
     interpreter="python3"
     venv="py3env"
+    export OPENSSL_CONF=/dev/null
 }
 
 
