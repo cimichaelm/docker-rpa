@@ -20,8 +20,8 @@ run_batch()
     
     if [ -d $workdir ]; then
 	cd $workdir
-
-	for prog in ${workdir}/*.py; do
+	proglist=`echo ${workdir}/*.py`
+	for prog in $proglist; do
 	    echo "Running: $prog"
 	    if [ -f $prog ]; then
 		$interpreter $prog
