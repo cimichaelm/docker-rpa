@@ -13,6 +13,7 @@ COPY conf/*.txt /opt/rpa/etc/
 # install packages
 RUN apt update -y \
 && apt install --yes --no-install-recommends \
+aptitude \
 bzip2 \
 php-cli \
 python3 \
@@ -28,6 +29,7 @@ sudo \
 nano \
 unzip \
 chromium \
+chromium-sandbox \
 xvfb \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
