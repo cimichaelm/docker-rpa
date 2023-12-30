@@ -28,6 +28,7 @@ sudo \
 nano \
 unzip \
 chromium \
+xvfb \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
