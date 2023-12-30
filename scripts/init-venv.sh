@@ -6,6 +6,7 @@ defaults()
 {
 
     bindir=$HOME/bin
+    h=$HOME
     systemdir=/opt/rpa
     requirements=$systemdir/etc/requirements.txt
     instdirflags="-d -m 755 -o ${u} -g ${u}"
@@ -18,7 +19,7 @@ defaults()
 
 setup_py3_venv()
 {
-    python3 -m venv $py3venv
+    python3 -m venv $h/$py3venv
 }
 
 use_py3_venv()
