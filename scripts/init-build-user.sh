@@ -25,7 +25,7 @@ build_user()
     Luser=$1
     Lhome=${homedir}/$Luser
     cd $Lhome
-    #sudo $sudoopts -u $Luser --set-home $systemdir/bin/init-venv.sh
+    sudo $sudoopts -u $Luser --set-home $systemdir/bin/init-venv.sh
 }
 
 defaults
