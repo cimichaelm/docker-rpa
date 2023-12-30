@@ -20,6 +20,8 @@ python3 \
 python3-venv \
 python3-pip \
 python3-full \
+python3-tesserocr \
+tesseract-ocr \
 pipx \
 curl \
 wget \
