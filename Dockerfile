@@ -42,6 +42,8 @@ RUN /opt/rpa/bin/install-google-chrome.sh
 RUN /opt/rpa/bin/init-build-user.sh rpauser
 
 USER rpauser
+ENV HOME /home/rpauser
+ENV USER rpauser
 
 CMD ["/opt/rpa/bin/rpa-start.sh"]
 
