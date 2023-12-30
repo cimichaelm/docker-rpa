@@ -7,11 +7,15 @@ defaults()
     bindir=/opt/rpa/code
     prog=$bindir/batch-screenshot.py
     workdir=/storage/work
-    logdir="${workdir}"
-    logfile=${logdir}/batch.log
     interpreter="python3"
     venv="py3env"
     export OPENSSL_CONF=/dev/null
+}
+
+configure()
+{
+    logdir="${workdir}"
+    logfile=${logdir}/batch.log
 }
 
 use_venv()
@@ -52,6 +56,8 @@ defaults
 
 opts=$*
 workdir=$1
+
+configure
 
 run_batch $opts | tee $logfile
 
