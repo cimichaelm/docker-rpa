@@ -5,6 +5,7 @@ FROM debian:12
 # set environment
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
+ENV RPA_WORKDIR /storage/work
 
 RUN mkdir -p /opt/rpa/etc
 COPY conf/*.txt /opt/rpa/etc/
