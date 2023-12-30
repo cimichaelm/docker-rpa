@@ -5,9 +5,9 @@ defaults()
 {
     tmpdir=/var/tmp
     bindir=/opt/rpa/code
-    logdir="."
     prog=$bindir/batch-screenshot.py
     workdir=/storage/work
+    logdir="${workdir}"
     logfile=${logdir}/batch.log
     interpreter="python3"
     venv="py3env"
