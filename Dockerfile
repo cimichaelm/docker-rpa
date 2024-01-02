@@ -34,6 +34,10 @@ unzip \
 chromium \
 chromium-sandbox \
 xvfb \
+xserver-xephyr \
+tigervnc-standalone-server \
+x11-utils \
+gnumeric \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

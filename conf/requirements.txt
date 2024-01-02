@@ -1,2 +1,4 @@
 rpa
 pyvirtualdisplay
+pillow
+EasyProcess
