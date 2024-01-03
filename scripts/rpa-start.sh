@@ -4,8 +4,8 @@
 defaults()
 {
     tmpdir=/var/tmp
-    bindir=/opt/rpa/code
-    prog=$bindir/batch-screenshot.py
+    bindir=/opt/rpa/bin
+    codedir=/opt/rpa/code
     workdir=${RPA_WORKDIR:-"/storage/work"}
     prog="${bindir}/rpa-batch.sh"
 }
