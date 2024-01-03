@@ -28,8 +28,12 @@ setup()
 download_certs()
 {
     cd $tmpdir
+
     wget https://cacerts.digicert.com/GeoTrustTLSRSACAG1.crt.pem
-    cp $tmpdir/*.pem $newcertdir
+    wget https://cacerts.digicert.com/GeoTrustTLSRSACAG1.crt
+
+    cp $tmpdir/*.crt $newcertdir
+
     sudo update-ca-certificates
 }
 
