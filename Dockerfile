@@ -38,6 +38,7 @@ xserver-xephyr \
 tigervnc-standalone-server \
 x11-utils \
 gnumeric \
+libnss3-tools \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
