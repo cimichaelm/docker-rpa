@@ -36,13 +36,13 @@ clean_batch()
 {
     echo "Cleaning job output files"
     
-    if [ -d ${outputdir} ]; then
-	rm "${outputdir}/*.png"
+    if [ -d "${outputdir}" ]; then
+	rm "${outputdir}"/*.png
     else
 	echo "No work directory found"
     fi
     
-    rm "${logdir}/*.log"
+    rm "${logdir}"/*.log
     
     echo "End of jobs"
 }
