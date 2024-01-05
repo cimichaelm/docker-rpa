@@ -12,9 +12,10 @@ defaults()
 
 configure()
 {
-    logdir="${workdir}/log"
+    builddir="$workdir/build"
+    logdir="${builddir}/log"
     logfile=${logdir}/batch.log
-    outputdir="$workdir/output"
+    outputdir="$builddir/output"
 }
 
 setup()
