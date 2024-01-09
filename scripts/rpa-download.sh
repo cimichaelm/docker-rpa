@@ -11,6 +11,7 @@ defaults()
     interpreter="python3"
     venv="py3env"
     export OPENSSL_CONF=/dev/null
+    downloaddir=$HOME/download
 }
 
 configure()
@@ -25,6 +26,7 @@ setup()
 {
     create_directory $outputdir
     create_directory $logdir
+    create_directory $downloaddir    
 }
 
 use_venv()
@@ -52,6 +54,9 @@ rpa_download()
         if [ -f $prog ]; then
             $interpreter $prog
         fi
+	if [ -f rpa_python.zip ]; then
+	    cp rpa.py rpa_python.zip $downloaddir
+	fi
     fi
     
 }
