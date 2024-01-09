@@ -8,6 +8,9 @@ defaults()
     codedir=/opt/rpa/code
     prog=$codedir/rpa-download.py
     workdir=${RPA_WORKDIR:-"/storage/work"}
+    interpreter="python3"
+    venv="py3env"
+    export OPENSSL_CONF=/dev/null
 }
 
 configure()
@@ -24,6 +27,13 @@ setup()
     create_directory $logdir
 }
 
+use_venv()
+{
+    Lvenv=$1
+    if [ -f $HOME/$Lvenv/bin/activate ]; then
+        . $HOME/$Lvenv/bin/activate
+    fi
+}
 
 create_directory()
 {
@@ -35,8 +45,15 @@ create_directory()
 
 rpa_download()
 {
-    cd $HOME
-    python3 $prog
+    use_venv $venv
+
+    if [ -d $outputdir ]; then
+        cd $outputdir
+        if [ -f $prog ]; then
+            $interpreter $prog
+        fi
+    fi
+    
 }
 
 defaults
@@ -47,6 +64,6 @@ workdir=$1
 configure
 setup
 
-rpa_download
+rpa_download $workdir
 
 exit 0

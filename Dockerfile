@@ -57,7 +57,7 @@ USER rpauser
 ENV HOME /home/rpauser
 ENV USER rpauser
 
-RUN /opt/rpa/bin/rpa-download.sh
+RUN /opt/rpa/bin/rpa-download.sh /tmp
 
 CMD ["/opt/rpa/bin/init-start.sh"]
 
