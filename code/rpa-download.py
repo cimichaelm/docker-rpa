@@ -4,7 +4,15 @@
 
 import rpa as r
 
+msg = "Running setup"
+print(msg)
+
+r.setup()
+
+msg = "Running pack"
+print(msg)
+
 r.pack()
 
-r.init()
-r.close()
+msg = "Done."
+print(msg)
