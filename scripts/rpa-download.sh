@@ -61,6 +61,12 @@ rpa_download()
     
 }
 
+clean_tmp()
+{
+    rm -rf /tmp/build
+}
+
+
 defaults
 
 opts=$*
@@ -70,5 +76,7 @@ configure
 setup
 
 rpa_download $workdir
+
+clean_tmp
 
 exit 0
