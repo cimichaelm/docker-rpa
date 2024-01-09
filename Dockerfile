@@ -48,6 +48,7 @@ RUN chmod 755 /opt/rpa/bin/*.sh
 
 RUN mkdir -p /opt/rpa/code
 COPY example/*.py /opt/rpa/code/
+COPY code/*.py /opt/rpa/code/
 
 RUN /opt/rpa/bin/install-google-chrome.sh
 RUN /opt/rpa/bin/init-build-user.sh rpauser
@@ -55,6 +56,8 @@ RUN /opt/rpa/bin/init-build-user.sh rpauser
 USER rpauser
 ENV HOME /home/rpauser
 ENV USER rpauser
+
+RUN /opt/rpa/bin/rpa-download.sh
 
 CMD ["/opt/rpa/bin/init-start.sh"]
 
