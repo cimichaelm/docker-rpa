@@ -2,3 +2,4 @@ rpa
 pyvirtualdisplay
 pillow
 EasyProcess
+requests
